@@ -1,0 +1,13 @@
+<div class="card" style="width: 18rem">
+  <div class="card-body">
+    <h4 class="card-title">{{ asignatura.nombre }}</h4>
+    <p class="card-text"><br/>Profesor: {{ asignatura.profesor }}</p>
+    <p class="card-text">Ciclo: {{ asignatura.ciclo }}</p>
+    <p class="card-text">Curso: {{ asignatura.curso }}</p>
+    <div class="row">
+      <div class="col" *ngFor="let item of asignatura.conocimientos">
+        <img [src]="item.imagen" class="card-img-top" alt="..." style="width:2.5rem; height: 2.5  rem">  
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="row">
+<div class="col">
+  <div>
+    <p>Buscador de nombre:</p>
+    <input class="form-control" type="text" placeholder="Introduce el nombre de la asignatura" #inputNombre>  
+  </div>
+</div>
+<div class="col">
+  <div>
+    <p>Selecciona un ciclo:</p>
+    <select class="form-select" #formCurso>
+      <option selected>Selecciona un ciclo</option>
+      <option>DAM</option>
+      <option>DAW</option>
+    </select> 
+  </div>
+</div>
+<div class="col">
+  <div>
+    <p>Selecciona un conocimiento:</p>
+    <select class="form-select">
+      <option selected>Selecciona un conocimiento</option>
+      <option *ngFor="let item of asignaturasPintar"><div *ngFor="let item1 of item.conocimientos">{{item1.nombre}}</div></option>
+    </select>  
+  </div>
+</div>
+
+<div>
+  <br><button class="btn btn-primary" style="width: 80rem;" (click)="buscarAsignaturaNombre(inputNombre.value,formCurso.value)">Filtrar</button><br>
+  <br><div class="alert alert-secondary" role="alert">El número de asignaturas que cumplen el filtro es de : {{asignturasBuscarNombre.length}}</div>
+  <div class="row">
+    <div class="col" *ngFor="let item of asignturasBuscarNombre">
+      <app-asignatura [asignatura]="item"></app-asignatura>
+    </div>
+  </div>
+</div>
+</div>
